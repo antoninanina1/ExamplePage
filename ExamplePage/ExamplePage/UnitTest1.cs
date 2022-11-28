@@ -24,7 +24,7 @@ namespace ExamplePage
 
         }
         [Test]
-        public void TC01_FillInputWithValidData_ShouldAllDataDisplayedININput()
+        public void TC01_FillInputWithValidData_ShouldAllDataDisplayedInInput()
         {
             loginPage.FullName.SendKeys("Antonina");
             loginPage.Password.SendKeys("12345");
@@ -35,14 +35,16 @@ namespace ExamplePage
         {
             loginPage.FullName.SendKeys("Antonina");
             loginPage.Password.SendKeys("12345");
-            loginPage.LoginButton.Click();     //ne znam zasto nece da mi radi save button sve ostalo hoce
+            loginPage.LoginButton.Click();     
 
-            homePage.Country.Click();
-            homePage.Address.SendKeys("Beograd 25");
+            homePage.SelectOption("Serbia");
+            homePage.Address.SendKeys("Beograd");
             homePage.Email.SendKeys("mail@mail.com");
             homePage.Phone.SendKeys("0549237651");
+            homePage.SaveButton.Click();
             
-            homePage.LoginButton.Click();
+
+            Assert.That("Saved", Is.EqualTo(homePage.SaveText.Text));
         }
         public void Login(string name, string pass)
         {
