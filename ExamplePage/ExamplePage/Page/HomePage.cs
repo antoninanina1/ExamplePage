@@ -15,6 +15,9 @@ namespace ExamplePage.Page
         public IWebElement Address => driver.FindElement(By.Id("address"));
         public IWebElement Email => driver.FindElement(By.Id("email"));
         public IWebElement Phone => driver.FindElement(By.Id("phone"));
+        public IWebElement SaveButton => driver.FindElement(By.Id("save"));
+        public IWebElement LogoutButton  => driver.FindElement(By.Id("logout"));
+        public IWebElement SaveText => driver.FindElement(By.ClassName("tp-saved"));
       
 
         public void SelectOption(string option)
@@ -24,6 +27,6 @@ namespace ExamplePage.Page
         }
 
         
-        public IWebElement Logout => driver.FindElement(By.Id("logout"));
+       
     }
 }
